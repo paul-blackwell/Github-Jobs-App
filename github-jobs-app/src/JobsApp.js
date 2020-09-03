@@ -6,7 +6,7 @@ export default function JobsApp() {
     return (
         <div className="JobsApp">
             <h1 className="JobsApp__title">Github Jobs</h1>
-            <JobsForm />
+                <JobsForm />
         </div>
     )
 }
