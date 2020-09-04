@@ -1,10 +1,8 @@
 import { useReducer } from 'react';
 
 
-
 export default initialState => {
 
-    
 
     /**
     * This function will be used to figure out what part of 
@@ -16,7 +14,6 @@ export default initialState => {
             [field]: value
         }
     }
-
 
     // Initialize state
     const [state, dispatch] = useReducer(reducer, initialState);
