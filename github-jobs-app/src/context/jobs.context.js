@@ -1,8 +1,8 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext } from "react";
 import useJobState from '../hooks/useJobState';
 
 
-const defaultJobs = ["My fav job"];
+const defaultJobs = [];
 
 export const JobsContext = createContext();
 

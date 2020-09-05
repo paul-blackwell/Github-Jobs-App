@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import useInputState from './reducers/useInputState.reducer';
 import { JobsContext } from "./context/jobs.context";
-import Request from './Request';
+import makeRequest from './hooks/makeRequest';
 
 
 
@@ -13,17 +13,15 @@ export default function JobsForm() {
         location: 'new york'
     }
 
-    const { addJob } = useContext(JobsContext);
-
+    const { searchJobs } = useContext(JobsContext);
     const [value, handleChange, reset] = useInputState(initialState);
-
+    
     return (
         <form
             className="JobsForm"
             onSubmit={e => {
                 e.preventDefault();
-                addJob('why is this not working')
-                Request(value);
+                searchJobs(value)
                 reset();
             }}
         >
