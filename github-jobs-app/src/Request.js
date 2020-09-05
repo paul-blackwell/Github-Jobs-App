@@ -8,8 +8,8 @@ export default function GithubJobs(query) {
     */    
     const proxy = 'https://cors-anywhere.herokuapp.com/';
 
-    axios.get(`${proxy}https://jobs.github.com/positions.json?description=${query.jobDescription}&location=${query.location}`).then(response => {
-        console.log(response.data);
-    });
+    // axios.get(`${proxy}https://jobs.github.com/positions.json?description=${query.jobDescription}&location=${query.location}`).then(response => {
+    //     console.log(response.data);
+    // });
 
 }

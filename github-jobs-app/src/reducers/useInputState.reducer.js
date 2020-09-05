@@ -28,11 +28,12 @@ export default initialState => {
      * Clear every items value in the state, 
      * we will use this to reset all the form inputs 
      */
-    const reset = (state) => {
+    const reset = () => {
         Object.keys(state).forEach((key) => { 
-            state[key] = ""; 
+            dispatch({ field: key, value: "" })
         });
     };
-    
+
+
     return [state, handleChange, reset];
 }

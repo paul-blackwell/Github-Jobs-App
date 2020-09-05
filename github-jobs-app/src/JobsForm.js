@@ -1,6 +1,6 @@
 import React from 'react';
 import useInputState from './reducers/useInputState.reducer';
-import GithubJobs from './GithubJobs';
+import Request from './Request';
 
 
 
@@ -21,8 +21,8 @@ const [value, handleChange, reset] = useInputState(initialState);
         className="JobsForm"
         onSubmit={e => {
             e.preventDefault();
-            GithubJobs(value);
-            // reset();
+            Request(value);
+            reset();
         }} 
         >
             <section className="JobsForm__section">
