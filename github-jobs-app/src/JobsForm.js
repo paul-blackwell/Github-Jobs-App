@@ -1,9 +1,6 @@
 import React, { useContext } from 'react';
 import useInputState from './reducers/useInputState.reducer';
 import { JobsContext } from "./context/jobs.context";
-import makeRequest from './hooks/makeRequest';
-
-
 
 
 export default function JobsForm() {

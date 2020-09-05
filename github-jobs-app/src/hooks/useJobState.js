@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 export default initialJobs => {
@@ -17,6 +17,6 @@ export default initialJobs => {
                 console.log(response.data);
                 setJobs(response.data)
             });
-        }
+        },
     }
 }
