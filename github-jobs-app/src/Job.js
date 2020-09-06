@@ -6,6 +6,12 @@ export default function Job(props) {
 
     const {title, location, created_at, company, type} = props;
 
+    // Sun Sep 06 14:30:27 UTC 2020
+    const str = created_at;
+    var index = str.indexOf( ' ', str.indexOf( ' ' ) + 1 );
+    var firstChunk = str.substr( 0, index );
+    console.log(firstChunk)
+
     return (
         <li className="Job">
             <h3 className="Job__title">
