@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import useInputState from './reducers/useInputState.reducer';
 import { JobsContext } from "./context/jobs.context";
+import './styles/components/__JobsForm.scss';
 
 
 export default function JobsForm() {
@@ -30,7 +31,9 @@ export default function JobsForm() {
                 <label className="JobsForm__label" htmlFor="location">Location</label>
                 <input className="JobsForm__input" id="location" name="location" type="text" required value={value.location} onChange={handleChange} />
             </section>
-            <button className="JobsForm__btn">Search</button>
+            <div className="JobsForm__buttons">
+                <button className="JobsForm__btn">Search</button>
+            </div>
         </form>
     )
 }
