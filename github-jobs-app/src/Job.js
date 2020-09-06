@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Icon from './Icon';
 import './styles/components/__Job.scss';
 
 export default function Job() {
@@ -11,8 +12,14 @@ export default function Job() {
             <p className="Job__date">17 days ago</p>
             <p className="Job__type">SoloProtect – Full Time</p>
             <div className="Job__buttons">
-                <button className="view-details-dtn">View Details</button>
-                <button className="save-btn">Save Job</button>
+                <button className="view-details-dtn">
+                    View Details
+                    <Icon label='Drop down icon' icon='icon-chevron-down' />
+                </button>
+                <button className="save-btn">
+                    <Icon label='Save icon' icon='icon-save' />
+                    Save Job
+                </button>
             </div>
         </li>
     )
