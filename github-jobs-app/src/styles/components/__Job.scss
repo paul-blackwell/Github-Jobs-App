@@ -2,11 +2,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     font-size: 1.4rem;
-    margin: 2.4rem 0;
-    padding: 2rem 0;
+    padding-bottom: 2rem;
     
     &:not(:last-child) { 
         border-bottom: .2rem solid #000000;
+        margin-bottom: 2.4rem;
     }
 
     &__title{

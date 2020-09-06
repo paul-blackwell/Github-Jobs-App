@@ -1,5 +1,6 @@
 import React from 'react';
 import Job from './Job';
+import './styles/components/__JobList.scss'
 
 export default function JobsList() {
     return (
