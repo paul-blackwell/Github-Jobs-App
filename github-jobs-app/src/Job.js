@@ -2,15 +2,18 @@ import React from 'react';
 import Icon from './Icon';
 import './styles/components/__Job.scss';
 
-export default function Job() {
+export default function Job(props) {
+
+    const {title, location, created_at, company, type} = props;
+
     return (
         <li className="Job">
             <h3 className="Job__title">
-                .Net Software Developer (GIS experience)
-                <span className="Job__title-span"> - Remote, United Kingdom</span>
+                {title}
+                <span className="Job__title-span"> - {location}</span>
             </h3>
-            <p className="Job__date">17 days ago</p>
-            <p className="Job__type">SoloProtect – Full Time</p>
+            <p className="Job__date">{created_at}</p>
+            <p className="Job__type">{company} - {type}</p>
             <div className="Job__buttons">
                 <button className="view-details-dtn">
                     View Details
