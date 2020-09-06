@@ -8,7 +8,8 @@ export default function JobsForm() {
 
     const initialState = {
         jobDescription: 'python',
-        location: 'new york'
+        location: 'new york',
+        fulltime: false
     }
 
     const { searchJobs } = useContext(JobsContext);
@@ -30,6 +31,10 @@ export default function JobsForm() {
             <section className="JobsForm__section">
                 <label className="JobsForm__label" htmlFor="location">Location</label>
                 <input className="JobsForm__input" id="location" name="location" type="text" required value={value.location} onChange={handleChange} />
+            </section>
+            <section className="JobsForm__section--checkbox">
+                <input className="JobsForm__input" id="fulltime" name="fulltime" type="checkbox" onChange={handleChange} />
+                <label className="JobsForm__label--checkbox" htmlFor="fulltime">Full Time only</label>
             </section>
             <div className="JobsForm__buttons">
                 <button className="JobsForm__btn">Search</button>

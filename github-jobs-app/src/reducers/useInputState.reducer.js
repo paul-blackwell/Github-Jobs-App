@@ -3,7 +3,6 @@ import { useReducer } from 'react';
 
 export default initialState => {
 
-
     /**
     * This function will be used to figure out what part of 
     * initialState we need to update
@@ -19,9 +18,18 @@ export default initialState => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
 
-    // Update state based on form input values
+    /**
+    * If input is a checkbox set its value depending
+    * on if its been checked or not, else update state 
+    * based on form input value 
+    */
     const handleChange = (e) => {
-        dispatch({ field: e.target.name, value: e.target.value });
+
+        if (e.target.type === 'checkbox') {
+            dispatch({ field: e.target.name, value: e.target.checked });
+        } else {
+            dispatch({ field: e.target.name, value: e.target.value });
+        }
     }
 
     /**
@@ -29,7 +37,7 @@ export default initialState => {
      * we will use this to reset all the form inputs 
      */
     const reset = () => {
-        Object.keys(state).forEach((key) => { 
+        Object.keys(state).forEach((key) => {
             dispatch({ field: key, value: "" })
         });
     };
