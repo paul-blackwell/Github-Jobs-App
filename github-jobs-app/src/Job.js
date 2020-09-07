@@ -1,12 +1,13 @@
 import React from 'react';
 import Icon from './Icon';
-import { formatDate } from './utils/helper'
+import { formatDate } from './utils/helper';
+import useToggleState from './hooks/useToggleState';
 import './styles/components/__Job.scss';
 
 export default function Job(props) {
 
-    const {title, location, created_at, company, type} = props;
-
+    const [showDetails, toggle] = useToggleState(false);
+    const { title, location, created_at, company, type } = props;
 
     return (
         <li className="Job">
@@ -26,6 +27,7 @@ export default function Job(props) {
                     Save Job
                 </button>
             </div>
+
         </li>
     )
 }
