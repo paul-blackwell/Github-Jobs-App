@@ -7,7 +7,6 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
-    "local-cors-proxy": "^1.1.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -16,7 +15,8 @@
   },
   "scripts": {
     "proxy": "lcp --proxyUrl https://jobs.github.com",
-    "start": "(react-scripts start) & npm run proxy",
+    "startReact": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -35,5 +35,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "local-cors-proxy": "^1.1.0",
+    "npm-run-all": "^4.1.5"
   }
 }

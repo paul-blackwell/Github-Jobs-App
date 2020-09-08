@@ -11,18 +11,32 @@ export default initialJobs => {
         },
         searchJobs: query => {
 
-            // https://www.npmjs.com/package/local-cors-proxy
-
             /**
-             * const proxy = 'https://cors-anywhere.herokuapp.com/';
+             * To get this to work locally:
+             * Run:  npm start
+             * Then in a different terminal 
+             * Run: npm run proxy
+             * You will have to do this to proxy to bypass CORS issues 
+             * when making requests from localhost, see docs https://www.npmjs.com/package/local-cors-proxy
              */
-            
-            // Load data 
-            // Set state with that data
-            axios.get(`http://localhost:8010/positions.json?description=${query.jobDescription}&full_time=${query.fulltime}&location=${query.location}`).then(response => {
-                console.log(response.data);
-                setJobs(response.data)
-            });
+
+            // If on localhost 
+            const API_BASE_URL = "http://localhost:8010/proxy/";
+
+            // If live
+            //const API_BASE_URL = "https://jobs.github.com/";
+
+            const { jobDescription, fulltime, location } = query;
+            const URL = `${API_BASE_URL}positions.json?description=${jobDescription}&full_time=${fulltime}&location=${location}`;
+
+            try {
+                axios.get(URL).then(response => {
+                    console.log(response.data);
+                    setJobs(response.data)
+                });
+            } catch (error) {
+                console.log(error);
+            }
         },
     }
 }
