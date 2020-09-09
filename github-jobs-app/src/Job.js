@@ -28,7 +28,7 @@ export default function Job(props) {
                 </button>
             </div>
             {showDescription &&
-                <p className="Job__details">{description}</p>
+                <div className="Job__details" dangerouslySetInnerHTML={{__html: description}} />
             }
         </li>
     )
