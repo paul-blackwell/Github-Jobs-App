@@ -7,8 +7,7 @@ import './styles/components/__JobList.scss'
 export default function JobsList() {
 
     const { jobs } = useContext(JobsContext);
-    console.log(jobs);
-
+    
     if (jobs) {
         return (
             <div className="JobsList">
@@ -24,9 +23,7 @@ export default function JobsList() {
         )
     } else {
         return (
-            <div className="JobsList">
-                <h2 className="JobsList__title">Showing 0 jobs</h2>
-            </div>
+            <div className="JobsList"></div>
         )
     }
 }
