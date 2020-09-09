@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import useJobState from '../hooks/useJobState';
 
 
-const defaultJobs = [];
+const defaultJobs = '';
 
 export const JobsContext = createContext();
 
