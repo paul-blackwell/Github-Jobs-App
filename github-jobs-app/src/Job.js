@@ -6,8 +6,8 @@ import './styles/components/__Job.scss';
 
 export default function Job(props) {
 
-    const [showDetails, toggle] = useToggleState(false);
-    const { title, location, created_at, company, type } = props;
+    const [showDescription, toggleDescription] = useToggleState(false);
+    const { title, location, created_at, company, type, description } = props;
 
     return (
         <li className="Job">
@@ -18,7 +18,7 @@ export default function Job(props) {
             <p className="Job__date">{formatDate(created_at)}</p>
             <p className="Job__type">{company} - {type}</p>
             <div className="Job__buttons">
-                <button className="view-details-dtn">
+                <button className="view-details-dtn" onClick={toggleDescription}>
                     View Details
                     <Icon label='Drop down icon' icon='icon-chevron-down' />
                 </button>
@@ -27,7 +27,9 @@ export default function Job(props) {
                     Save Job
                 </button>
             </div>
-
+            {showDescription &&
+                <p className="Job__details">{description}</p>
+            }
         </li>
     )
 }
