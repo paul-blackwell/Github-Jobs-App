@@ -7,7 +7,7 @@ import './styles/components/__JobList.scss'
 export default function JobsList() {
 
     const { jobs } = useContext(JobsContext);
-    
+
     if (jobs) {
         return (
             <div className="JobsList">
@@ -23,7 +23,7 @@ export default function JobsList() {
         )
     } else {
         return (
-            <div className="JobsList"></div>
+            <div className="JobsList"><h1>Loading</h1></div>
         )
     }
 }

@@ -9,6 +9,9 @@ export default initialJobs => {
         addJob: newJob => {
             setJobs(newJob);
         },
+        showLoader: val => {
+            setJobs([...jobs, { loading: val }]);
+        },
         searchJobs: query => {
 
             /**
@@ -31,8 +34,8 @@ export default initialJobs => {
 
             try {
                 axios.get(URL).then(response => {
-                    console.log(response.data);
-                    setJobs(response.data)
+                    console.log([...response.data, { loading: false }]);
+                    setJobs(response.data);
                 });
             } catch (error) {
                 console.log(error);

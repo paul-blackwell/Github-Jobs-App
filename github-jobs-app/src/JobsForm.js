@@ -12,7 +12,7 @@ export default function JobsForm() {
         fulltime: false
     }
 
-    const { searchJobs } = useContext(JobsContext);
+    const { searchJobs, showLoader} = useContext(JobsContext)
     const [value, handleChange, reset] = useInputState(initialState);
     
     return (
@@ -20,7 +20,7 @@ export default function JobsForm() {
             className="JobsForm"
             onSubmit={e => {
                 e.preventDefault();
-                searchJobs(value)
+                searchJobs(value);
                 reset();
             }}
         >

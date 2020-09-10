@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function useToggleState(initialVal = false) {
+export default function useLoaderState(initialVal = false) {
 
     // call useState, "reserve piece of state"
     const [state, setState] = useState(initialVal);
