@@ -1,0 +1,22 @@
+.Loader {
+    width: 6.2rem;
+    height: 6.2rem;
+    border: 1rem solid #000000;
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
+    border-radius: 100%;
+    margin: auto;
+    animation: spin 1s linear infinite;
+    z-index: 2;
+
+    @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+      
+        to {
+          transform: rotate(360deg);
+        }
+    }
+}
+

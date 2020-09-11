@@ -9,8 +9,8 @@ export default initialJobs => {
         addJob: newJob => {
             setJobs(newJob);
         },
-        showLoader: val => {
-            setJobs([...jobs, { loading: val }]);
+        showLoader: () => {
+            setJobs('loading');
         },
         searchJobs: query => {
 

@@ -20,6 +20,7 @@ export default function JobsForm() {
             className="JobsForm"
             onSubmit={e => {
                 e.preventDefault();
+                showLoader();
                 searchJobs(value);
                 reset();
             }}
