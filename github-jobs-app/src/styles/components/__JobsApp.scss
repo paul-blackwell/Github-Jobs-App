@@ -2,10 +2,13 @@
     max-width: 	114rem;
     margin: 4.8rem auto;
 
-
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        margin: .8rem 0;
+    }
     &__title {
         font-size: 3.6rem;
         line-height: 1.6;
-        margin: 2rem 0;
     }
 }
