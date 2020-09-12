@@ -6,10 +6,18 @@ export default initialJobs => {
     const [jobs, setJobs] = useState(initialJobs);
 
     const [savedJobs, setSavedJobs] = useLocalStorageState("Jobs", []);
+    
+    /**
+     * This will be used to toggle saved Jobs list if the the Saved Jobs btn 
+     * has been clicked
+     * */
+    const [showSavedJobs, setShowSavedJobs] = useState('');
 
 
     return {
         jobs,
+        savedJobs,
+        showSavedJobs,
         addJob: newJob => {
             setJobs(newJob);
         },

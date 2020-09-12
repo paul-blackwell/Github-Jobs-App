@@ -8,13 +8,16 @@ import Loader from './Loader';
 
 export default function JobsList() {
 
-    const { jobs } = useContext(JobsContext);
-    
+    const { jobs, savedJobs } = useContext(JobsContext);
+
+    console.log(savedJobs);
+
 
     if (jobs && jobs !== 'loading') {
         return (
             <div className="JobsList">
                 <h2 className="JobsList__title">Showing {jobs.length} jobs</h2>
+                {/* Just for testing */}
                 {jobs.length > 0 &&
                     <ul className="JobsList__list">
                         {jobs.map((job) => (
