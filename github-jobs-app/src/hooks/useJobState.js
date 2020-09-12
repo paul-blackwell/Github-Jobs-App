@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 
 export default initialJobs => {
     const [jobs, setJobs] = useState(initialJobs);
+
+    const [savedJobs, setSavedJobs] = useLocalStorageState("Jobs", []);
+
 
     return {
         jobs,
@@ -11,6 +15,17 @@ export default initialJobs => {
         },
         showLoader: () => {
             setJobs('loading');
+        },
+        saveJob: (id) => {
+            
+            /**
+             * This will return the job you want to save as an object,
+             * based on the ID passed in
+             */
+            const saveThis = jobs.find(job => {
+                return job.id === id
+            })
+            setSavedJobs([...savedJobs, saveThis]);
         },
         searchJobs: query => {
 

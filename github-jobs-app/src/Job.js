@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Icon from './Icon';
 import { formatDate } from './utils/helper';
 import useToggleState from './hooks/useToggleState';
 import './styles/components/__Job.scss';
+import { JobsContext } from "./context/jobs.context";
 
 export default function Job(props) {
 
+    const { saveJob } = useContext(JobsContext)
+
     const [showDescription, toggleDescription] = useToggleState(false);
-    const { title, location, created_at, company, type, description } = props;
+    const { id, title, location, created_at, company, type, description } = props;
+
 
     return (
         <li className="Job">
@@ -22,7 +26,7 @@ export default function Job(props) {
                     View Details
                     <Icon label='Drop down icon' icon='icon-chevron-down' />
                 </button>
-                <button className="save-btn">
+                <button className="save-btn" onClick={() => {saveJob(id)}}>
                     <Icon label='Save icon' icon='icon-save' />
                     Save Job
                 </button>

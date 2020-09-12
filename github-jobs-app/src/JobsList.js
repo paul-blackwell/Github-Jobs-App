@@ -5,9 +5,11 @@ import './styles/components/__JobList.scss'
 import Loader from './Loader';
 
 
+
 export default function JobsList() {
 
     const { jobs } = useContext(JobsContext);
+    
 
     if (jobs && jobs !== 'loading') {
         return (
@@ -22,7 +24,7 @@ export default function JobsList() {
                 }
             </div>
         )
-    } else if (jobs === 'loading'){
+    } else if (jobs === 'loading') {
         return (
             <div className="JobsList">
                 <Loader />
