@@ -11,7 +11,8 @@ export default initialJobs => {
      * This will be used to toggle saved Jobs list if the the Saved Jobs btn 
      * has been clicked
      * */
-    const [showSavedJobs, setShowSavedJobs] = useState('');
+    const [showSavedJobs, setShowSavedJobs] = useState({showingSavedJobs: false});
+    // const [showDescription, toggleDescription] = useToggleState(false);
 
 
     return {
@@ -23,6 +24,12 @@ export default initialJobs => {
         },
         showLoader: () => {
             setJobs('loading');
+        },
+        showingSavedJobs: (show = false) => {
+            setShowSavedJobs({showingSavedJobs: show});
+        },
+        toggleShowingSavedJobs:() => {
+            setShowSavedJobs({showingSavedJobs: !showSavedJobs.showingSavedJobs});
         },
         saveJob: (id) => {
             

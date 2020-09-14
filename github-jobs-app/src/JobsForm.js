@@ -12,7 +12,7 @@ export default function JobsForm() {
         fulltime: false
     }
 
-    const { searchJobs, showLoader} = useContext(JobsContext)
+    const { searchJobs, showLoader, showingSavedJobs} = useContext(JobsContext)
     const [value, handleChange, reset] = useInputState(initialState);
     
     return (
@@ -20,6 +20,7 @@ export default function JobsForm() {
             className="JobsForm"
             onSubmit={e => {
                 e.preventDefault();
+                showingSavedJobs(); // Hide saved jobs list if its on the page
                 showLoader();
                 searchJobs(value);
                 reset();
