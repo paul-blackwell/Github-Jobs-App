@@ -11,8 +11,7 @@ export default function Job(props) {
     const [state, setState] = useState('');
 
     const [showDescription, toggleDescription] = useToggleState(false);
-    const { id, title, location, created_at, company, type, description } = props;
-
+    const { id, title, location, created_at, company, type, description, showSaveBtn } = props;
 
     /**
      * This will save the Job to localStorage,then setState 
@@ -22,12 +21,12 @@ export default function Job(props) {
      */
     function save(jobId) {
         saveJob(jobId);
-        setState({showLoading: true});
+        setState({ showLoading: true });
 
         setTimeout(() => {
-            setState({showLoading: false});
+            setState({ showLoading: false });
         }, 1000);
-        
+
     }
 
     return (
@@ -43,13 +42,15 @@ export default function Job(props) {
                     View Details
                     <Icon label='Drop down icon' icon='icon-chevron-down' />
                 </button>
-                <button className="save-btn" onClick={() => {save(id)}}>
-                    <Icon label='Save icon' icon='icon-save' />
-                    {!state.showLoading ? 'Save Job' : 'Saving...'}
-                </button>
+                {showSaveBtn &&  // only show save btn if rendering the search not the saved jobs
+                    <button className="save-btn" onClick={() => { save(id) }}>
+                        <Icon label='Save icon' icon='icon-save' />
+                        {!state.showLoading ? 'Save Job' : 'Saving...'}
+                    </button>
+                }
             </div>
             {showDescription &&
-                <div className="Job__details" dangerouslySetInnerHTML={{__html: description}} />
+                <div className="Job__details" dangerouslySetInnerHTML={{ __html: description }} />
             }
         </li>
     )

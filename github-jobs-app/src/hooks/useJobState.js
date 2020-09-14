@@ -12,7 +12,6 @@ export default initialJobs => {
      * has been clicked
      * */
     const [showSavedJobs, setShowSavedJobs] = useState({showingSavedJobs: false});
-    // const [showDescription, toggleDescription] = useToggleState(false);
 
 
     return {
@@ -64,7 +63,6 @@ export default initialJobs => {
 
             try {
                 axios.get(URL).then(response => {
-                    console.log([...response.data, { loading: false }]);
                     setJobs(response.data);
                 });
             } catch (error) {

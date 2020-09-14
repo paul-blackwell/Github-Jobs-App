@@ -7,6 +7,7 @@ import './styles/components/__JobsApp.scss';
 
 
 export default function JobsApp() {
+
     return (
         <div className="JobsApp">
             <JobsProvider>
