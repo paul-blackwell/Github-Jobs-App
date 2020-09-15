@@ -6,12 +6,12 @@ export default initialJobs => {
     const [jobs, setJobs] = useState(initialJobs);
 
     const [savedJobs, setSavedJobs] = useLocalStorageState("Jobs", []);
-    
+
     /**
      * This will be used to toggle saved Jobs list if the the Saved Jobs btn 
      * has been clicked
      * */
-    const [showSavedJobs, setShowSavedJobs] = useState({showingSavedJobs: false});
+    const [showSavedJobs, setShowSavedJobs] = useState({ showingSavedJobs: false });
 
 
     return {
@@ -25,21 +25,35 @@ export default initialJobs => {
             setJobs('loading');
         },
         showingSavedJobs: (show = false) => {
-            setShowSavedJobs({showingSavedJobs: show});
+            setShowSavedJobs({ showingSavedJobs: show });
         },
-        toggleShowingSavedJobs:() => {
-            setShowSavedJobs({showingSavedJobs: !showSavedJobs.showingSavedJobs});
+        toggleShowingSavedJobs: () => {
+            setShowSavedJobs({ showingSavedJobs: !showSavedJobs.showingSavedJobs });
         },
         saveJob: (id) => {
-            
+
+
+            /* This will check if the job has been already saved */
+            let alreadySaved;
+            savedJobs.forEach(job => {
+                if (job.id === id) {
+                    alreadySaved = true;
+                }
+                return alreadySaved;
+            });
+
             /**
-             * This will return the job you want to save as an object,
-             * based on the ID passed in
-             */
-            const saveThis = jobs.find(job => {
-                return job.id === id
-            })
-            setSavedJobs([...savedJobs, saveThis]);
+            * This will return the job you want to save as an object
+            * if it has not been already saved,
+            * based on the ID passed in
+            */
+            if (!alreadySaved) {
+                const saveThis = jobs.find(job => {
+                    return job.id === id
+                })
+                setSavedJobs([...savedJobs, saveThis]);
+            }
+
         },
         searchJobs: query => {
 
