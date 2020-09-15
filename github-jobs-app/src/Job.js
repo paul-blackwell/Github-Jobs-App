@@ -7,7 +7,7 @@ import { JobsContext } from "./context/jobs.context";
 
 export default function Job(props) {
 
-    const { saveJob } = useContext(JobsContext);
+    const { saveJob, removeSavedJob } = useContext(JobsContext);
     const [state, setState] = useState('');
 
     const [showDescription, toggleDescription] = useToggleState(false);
@@ -47,6 +47,9 @@ export default function Job(props) {
                         <Icon label='Save icon' icon='icon-save' />
                         {!state.showLoading ? 'Save Job' : 'Saving...'}
                     </button>
+                }
+                {!showSaveBtn && // only show delete btn if rendering the saved jobs
+                <button className="delete-btn" onClick={() => removeSavedJob(id)}>Delete</button>
                 }
             </div>
             {showDescription &&

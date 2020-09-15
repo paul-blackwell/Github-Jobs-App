@@ -55,6 +55,13 @@ export default initialJobs => {
             }
 
         },
+        removeSavedJob: (id) => {
+             // filter out removed Job
+            const updatedSavedJobs = savedJobs.filter(job => job.id !== id);
+
+            // Call setSavedJob with new savedJobs array
+            setSavedJobs(updatedSavedJobs);
+        },
         searchJobs: query => {
 
             /**
