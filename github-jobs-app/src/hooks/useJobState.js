@@ -74,10 +74,10 @@ export default initialJobs => {
              */
 
             // If on localhost 
-            const API_BASE_URL = "http://localhost:8010/proxy/";
+            //const API_BASE_URL = "http://localhost:8010/proxy/";
 
             // If live
-            //const API_BASE_URL = "https://jobs.github.com/";
+            const API_BASE_URL = "https://jobs.github.com/";
 
             const { jobDescription, fulltime, location } = query;
             const URL = `${API_BASE_URL}positions.json?description=${jobDescription}&full_time=${fulltime}&location=${location}`;
